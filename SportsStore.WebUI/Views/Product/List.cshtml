@@ -1,0 +1,16 @@
+﻿@model ProductsListViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+@foreach (var product in Model.Products)
+{
+    Html.RenderPartial("ProductSummary", product);
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
